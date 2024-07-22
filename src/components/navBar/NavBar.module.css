@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  padding: 2% 5%;
+  background: white;
+  justify-content: space-between;
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  font-weight: bold;
+  font-size:x-large;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.phoneInfoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.phoneInfo {
+  margin: 0 20px;
+}

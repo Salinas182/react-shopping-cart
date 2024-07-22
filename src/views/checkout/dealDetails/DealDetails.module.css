@@ -1,0 +1,87 @@
+.checkoutStage {
+  text-align: start;
+  font-weight: 900;
+}
+
+.dealSummary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dealTitle, .dealPrice {
+  font-weight: 900;
+}
+
+.dealTitle {
+  font-size: 3vw;
+}
+
+.dealPrice {
+  font-size: 5vw;
+}
+
+.detailsDivider {
+  border-top: 3px solid #6b34eb;
+  width: 4vw;
+  margin-bottom: 8vh;
+}
+
+.description {
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+
+.featuresContainer {
+  display: flex;
+  width: 50%;
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 30px;
+  list-style: none;
+  padding-left: 1vw;
+}
+
+.featureItem {
+  border-radius: 4px;
+  list-style-image: url('../../../assets/icons/check.svg');
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.choice {
+  text-align: left;
+  font-size: large;
+}
+
+.promosContainer {
+  display: flex;
+}
+
+.promoCard {
+  min-width: 20vw;
+  max-width: 25vw;
+  background-color: white;
+  padding: 2vw 1.5vw;
+  margin-right: 3vw;
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+}
+
+.buttonContainer {
+  display: flex;
+  margin: 5vh 0;
+}
+
+.button {
+  width: 15vw;
+  padding: 10px;
+  background-color: #07128c;
+  color: white;
+  cursor: pointer;
+}

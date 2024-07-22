@@ -1,0 +1,47 @@
+import styles from './DealDetails.module.css';
+
+export default function DealDetails({ product }) {
+  return (
+    <>
+      <h3 className={styles.checkoutStage}>
+        01. Configura tu tarifa
+      </h3>
+      <div className={styles.dealSummary}>
+        <h2 className={styles.dealTitle}>{product.webInfo.menuTitle}</h2>
+        <h1 className={styles.dealPrice}>
+          {product.prices?.find(price => price.name === 'iva')?.price} €</h1>
+      </div>
+
+      <hr className={styles.detailsDivider} align="left"/>
+      <p className={styles.description}>{product.webInfo.description}</p>
+
+      <div className={styles.featuresContainer}>
+        <ul className={styles.featuresList}>
+          {product.webInfo.features?.map((feature, index) =>
+            <li key={`feature-${index}`} className={styles.featureItem}>
+              {feature}
+            </li>
+          )}
+        </ul>
+      </div>
+
+      {product.promotions?.length && (
+        <>
+          <p className={styles.choice}>Elige la promoción que quieres aplicarle a tu tarifa:</p>
+          <div className={styles.promosContainer}>
+            {product.promotions.map((promo, idx) =>
+              <div className={styles.promoCard} key={`promo-${idx}`}>
+                <p>{promo.name?.toUpperCase()}</p>
+                <p>{promo.description}</p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      <div className={styles.buttonContainer}>
+        <button className={styles.button}>Continuar</button>
+      </div>
+    </>
+  );
+}

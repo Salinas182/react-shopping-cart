@@ -1,0 +1,14 @@
+.mainContainer {
+  background-color: #f5f5ff;
+  color: black;
+  width: 90%;
+  padding: 0 5%;
+}
+
+.title {
+  text-align: start;
+}
+
+.divider {
+  border-top: 3px solid;
+}
