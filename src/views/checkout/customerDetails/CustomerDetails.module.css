@@ -1,0 +1,47 @@
+.checkoutStage {
+  text-align: start;
+  font-weight: 900;
+}
+
+.formContainer {
+  width: 50vw;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.inputGroup {
+  flex: 1 1 calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1vw;
+}
+
+input {
+  height: 4vh;
+}
+
+.tooltip {
+  font-size: 0.75rem;
+  color: grey;
+  text-align: left;
+}
+
+.terms {
+  text-align: left;
+  font-size: small;
+  margin-top: 3vw;
+}
+
+.termsLink {
+  text-decoration: none;
+}

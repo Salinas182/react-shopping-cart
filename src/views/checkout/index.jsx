@@ -3,6 +3,7 @@ import httpAdapter from "../../adapters/httpAdapter";
 import useErrorHandling from "../../hooks/useErrorHandling";
 import styles from "./Checkout.module.css";
 import DealDetails from "./dealDetails";
+import CustomerDetails from "./customerDetails";
 
 export default function Checkout() {
   const [product, setProduct] = useState();
@@ -37,7 +38,8 @@ export default function Checkout() {
       <h2 className={styles.title}>¡Comenzamos con tu pedido!</h2>
       <hr className={styles.divider} />
       
-      <DealDetails product={product}/>
+      <DealDetails product={product} />
+      <CustomerDetails />
     </div>
   );
 }

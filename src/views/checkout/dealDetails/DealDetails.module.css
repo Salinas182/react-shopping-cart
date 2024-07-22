@@ -72,16 +72,3 @@
   font-weight: bold;
   text-align: left;
 }
-
-.buttonContainer {
-  display: flex;
-  margin: 5vh 0;
-}
-
-.button {
-  width: 15vw;
-  padding: 10px;
-  background-color: #07128c;
-  color: white;
-  cursor: pointer;
-}

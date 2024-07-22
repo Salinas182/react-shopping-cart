@@ -1,3 +1,4 @@
+import Button from '../../../components/Button';
 import styles from './DealDetails.module.css';
 
 export default function DealDetails({ product }) {
@@ -39,9 +40,25 @@ export default function DealDetails({ product }) {
         </>
       )}
 
-      <div className={styles.buttonContainer}>
-        <button className={styles.button}>Continuar</button>
-      </div>
+      <Button label={buttonProps.LABEL} styles={buttonProps.styles}/>
     </>
   );
 }
+
+const buttonProps = {
+  LABEL: 'Continuar',
+  styles: {
+    buttonContainer: {
+      display: 'flex',
+      margin: '5vh 0',
+      height: '7vh',
+    },
+    button: {
+      width: '15vw',
+      padding: '10px',
+      backgroundColor: '#07128c',
+      color: 'white',
+      cursor: 'pointer',
+    }
+  }
+};
