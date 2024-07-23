@@ -1,9 +1,24 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
 import styles from './OrderSummary.module.css';
 import chevronIcon from '../../../assets/icons/chevron.svg';
 
-export default function OrderSummary({product}) {
+export default function OrderSummary({ product, discount = 0 }) {
+  const [checkedTerms, setCheckedTerms] = useState(false);
+  const [formCompleted, setFormCompleted] = useState(false);
+
+  const productMonthlyPrice = product.prices?.find(price => price.name === 'iva')?.price;
+  const initialPayment = discount ? productMonthlyPrice : (productMonthlyPrice + 96.8).toFixed(1);
+
+  useEffect(() => {
+    setFormCompleted(checkedTerms);
+  }, [checkedTerms]);
+
+  const handleCheckboxChange = (e) => {
+    setCheckedTerms(e.target.checked);
+  };
+
   return (
     <>
       <h3 className={styles.checkoutStage}>
@@ -16,7 +31,7 @@ export default function OrderSummary({product}) {
         <div className={styles.rateDetails}>
           <span>Fibra 300Mbps</span>
           <span className={styles.ratePrice}>
-            {product.prices?.find(price => price.name === 'iva')?.price} €
+            {productMonthlyPrice} €
           </span>
         </div>
 
@@ -26,7 +41,9 @@ export default function OrderSummary({product}) {
 
         <div className={styles.commitmentInfo}>
           <span>Permanencia</span>
-          <span className={styles.commitmentPeriod}>{'' ? '3 meses' : 'No'}</span>
+          <span className={styles.commitmentPeriod}>
+            {discount ? '3 meses' : 'No'}
+          </span>
         </div>
       </div>
 
@@ -49,10 +66,14 @@ export default function OrderSummary({product}) {
 
         <div className={styles.installationDiscount}>
           <span>Descuento por Instalación</span>
-          <span className={styles.discount}>-96.80€</span>
+          <span className={styles.discount}>
+            {`-${discount}€`}
+          </span>
         </div> 
 
-        <p className={styles.initialPayment}>0€</p>
+        <p className={styles.initialPayment}>
+          {`${initialPayment}€`}
+        </p>
       </div>
 
       <hr className={styles.divider} />
@@ -70,7 +91,9 @@ export default function OrderSummary({product}) {
               <img src={chevronIcon} alt="Chevron icon" className={styles.chevronIcon} />
             </span>
           </div>
-          <span className={styles.monthlyPrice}>0€</span>
+          <span className={styles.monthlyPrice}>
+            {`${productMonthlyPrice}€`}
+          </span>
         </div> 
       </div>
 
@@ -78,14 +101,24 @@ export default function OrderSummary({product}) {
 
       <div className={styles.completeProcess}>
         <div className={styles.acknowledgement}>
-          <input type="checkbox" id="acknowledge" className={styles.checkbox} />
+          <input
+            type="checkbox"
+            id="acknowledge"
+            className={styles.checkbox}
+            onChange={handleCheckboxChange}
+            checked={checkedTerms}
+          />
           <label htmlFor="acknowledge" className={styles.customCheckbox}></label>
           <p className={styles.acknowledgementText}>
             He leído y acepto los costes y las nuevas condiciones asociadas al cambio de tarifa, módulo de ahorro y/o promoción, así como la <Link to="#" className={styles.termsLink}>política de desestimiento</Link>, y solicito que los servicios comiencen a prestarse en el siguiente ciclo de facturación.
           </p>
         </div>
 
-        <Button label={buttonProps.LABEL} styles={buttonProps.styles}/>
+        <Button
+          label={buttonProps.LABEL}
+          styles={buttonProps.styles}
+          disabled={!formCompleted}
+        />
       </div>
     </>
   );

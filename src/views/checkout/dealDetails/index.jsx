@@ -1,7 +1,17 @@
+import { useState } from 'react';
 import Button from '../../../components/Button';
 import styles from './DealDetails.module.css';
+import checkedIcon from '../../../assets/icons/ok.svg';
 
-export default function DealDetails({ product }) {
+const DISCOUNT_PROMO = 'STANDARD';
+
+export default function DealDetails({ product, setDiscount }) {
+  const [promoSelected, setPromoSelected] = useState(null);
+  const handlePromoSelection = (promo) => {
+    setPromoSelected(promo);
+    setDiscount(promo === DISCOUNT_PROMO ? 96.8 : 0);
+  };
+
   return (
     <>
       <h3 className={styles.checkoutStage}>
@@ -31,7 +41,14 @@ export default function DealDetails({ product }) {
           <p className={styles.choice}>Elige la promoción que quieres aplicarle a tu tarifa:</p>
           <div className={styles.promosContainer}>
             {product.promotions.map((promo, idx) =>
-              <div className={styles.promoCard} key={`promo-${idx}`}>
+              <div
+                className={`${styles.promoCard} ${promoSelected === promo.type ? styles.selected : ''}`}
+                key={`promo-${idx}`}
+                onClick={() => handlePromoSelection(promo.type)}
+              >
+                {promoSelected === promo.type && (
+                  <img src={checkedIcon} alt="Selected" className={styles.checkIcon} />
+                )}
                 {promo.type === 'ALTERNATIVE' && (
                   <p className={styles.bestSeller}>
                     LA MÁS VENDIDA
@@ -45,7 +62,12 @@ export default function DealDetails({ product }) {
         </>
       )}
 
-      <Button label={buttonProps.LABEL} styles={buttonProps.styles}/>
+      {console.log(promoSelected ? 'selected' : 'no')}
+      <Button
+        label={buttonProps.LABEL}
+        styles={buttonProps.styles}
+        disabled={!promoSelected}
+      />
     </>
   );
 }
@@ -65,5 +87,6 @@ const buttonProps = {
       color: 'white',
       cursor: 'pointer',
     }
-  }
+  },
 };
+

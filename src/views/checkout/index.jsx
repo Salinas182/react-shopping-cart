@@ -9,6 +9,7 @@ import OrderSummary from "./orderSummary";
 export default function Checkout() {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
+  const [discount, setDiscount] = useState(0);
   const { error, handleError } = useErrorHandling();
 
   useEffect(() => {
@@ -39,9 +40,9 @@ export default function Checkout() {
       <h2 className={styles.title}>¡Comenzamos con tu pedido!</h2>
       <hr className={styles.divider} />
       
-      <DealDetails product={product} />
+      <DealDetails product={product} setDiscount={setDiscount}/>
       <CustomerDetails />
-      <OrderSummary product={product} />
+      <OrderSummary product={product} discount={discount}/>
     </div>
   );
 }

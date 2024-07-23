@@ -60,7 +60,7 @@
 
 .initialPayment, .monthlyPrice {
   font-size: 9vh;
-  font-weight: bolder;
+  font-weight: 900;
   text-align: right;
   margin: 0;
 }

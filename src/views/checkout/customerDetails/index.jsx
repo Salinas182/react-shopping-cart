@@ -1,8 +1,32 @@
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
 import styles from './CustomerDetails.module.css';
+import Input from '../../../components/Input';
+import useFormValidation from '../../../hooks/useFormValidation';
+import { useEffect, useState } from 'react';
 
 export default function CustomerDetails() {
+  const [formCompleted, setFormCompleted] = useState(false);
+  const initialValues = {
+    id: '',
+    firstName: '',
+    firstLastName: '',
+    secondLastName: '',
+    birthdate: '',
+    phone: '',
+    email: ''
+  };
+  const {
+    formValues,
+    handleInputChange,
+    validateForm
+  } = useFormValidation(initialValues);
+
+  useEffect(() => {
+    const { valid } = validateForm();
+    setFormCompleted(valid);
+  }, [validateForm])
+
   return (
     <>
       <h3 className={styles.checkoutStage}>
@@ -11,85 +35,103 @@ export default function CustomerDetails() {
 
       <div className={styles.formContainer}>
         <form action="">
-          <div className={styles.inputGroup}>
-            <label for="id">Documento de identidad</label>
-            <input
-              type="text"
-              id="id"
-              name="id"
-              placeholder="Ej. 01234567X"
-            />
-            <small className={styles.tooltip}>Sin guiones</small>
-          </div>
+          <Input
+            fieldProps={{
+              type: 'text',
+              name: 'id',
+              label: 'Documento de identidad',
+              placeholder: 'Ej. 01234567X',
+              tooltipLabel: 'Sin guiones',
+              styles: styles,
+              onChange: handleInputChange,
+              value: formValues.id
+            }}
+          />
           
-          <div className={styles.inputGroup}>
-            <label for="firstName">Nombre</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              placeholder="Ej. Daniel"
-            />
-          </div>
+          <Input
+            fieldProps={{
+              type: 'text',
+              name: 'firstName',
+              label: 'Nombre',
+              placeholder: 'Ej. Daniel',
+              styles: styles,
+              onChange: handleInputChange,
+              value: formValues.firstName
+            }}
+          />
 
-          <div className={styles.inputGroup}>
-            <label for="firstLastName">Primer apellido</label>
-            <input
-              type="text"
-              id="firstLastName"
-              name="firstLastName"
-              placeholder="Ej. Fernández"
-            />
-          </div>
+          <Input
+            fieldProps={{
+              type: 'text',
+              name: 'firstLastName',
+              label: 'Primer apellido',
+              placeholder: 'Ej. Fernández',
+              styles: styles,
+              onChange: handleInputChange,
+              value: formValues.firstLastName
+            }}
+          />
 
-          <div className={styles.inputGroup}>
-            <label for="secondLastName">Segundo apellido</label>
-            <input
-              type="text"
-              id="secondLastName"
-              name="secondLastName"
-              placeholder="Ej. García"
-            />
-          </div>
+          <Input
+            fieldProps={{
+              type: 'text',
+              name: 'secondLastName',
+              label: 'Segundo apellido',
+              placeholder: 'Ej. García',
+              styles: styles,
+              onChange: handleInputChange,
+              value: formValues.secondLastName
+            }}
+          />
 
-          <div className={styles.inputGroup}>
-            <label for="birthdate">Fecha de nacimiento</label>
-            <input
-              type="text"
-              id="birthdate"
-              name="birthdate"
-              placeholder="Ej. 01-02-1990"
-            />
-            <small className={styles.tooltip}>DD-MM-YYYY</small>
-          </div>
+          <Input
+            fieldProps={{
+              type: 'text',
+              name: 'birthdate',
+              label: 'Fecha de nacimiento',
+              placeholder: 'Ej. 01-02-1990',
+              tooltipLabel: 'DD-MM-YYYY',
+              styles: styles,
+              onChange: handleInputChange,
+              value: formValues.birthdate
+            }}
+          />
 
-          <div className={styles.inputGroup}>
-            <label for="phone">Teléfono de contacto</label>
-            <input
-              type="number"
-              id="phone"
-              name="phone"
-              placeholder="Ej. 612345678"
-            />
-            <small className={styles.tooltip}>Nos pondremos en contacto contigo en este teléfono</small>
-          </div>
+          <Input
+            fieldProps={{
+              type: 'number',
+              name: 'phone',
+              label: 'Teléfono de contacto',
+              placeholder: 'Ej. 612345678',
+              styles: styles,
+              tooltipLabel: 'Nos pondremos en contacto contigo en este teléfono',
+              onChange: handleInputChange,
+              value: formValues.phone
+            }}
+          />
 
-          <div className={styles.inputGroup}>
-            <label for="email">Correo electrónico</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Ej. carmenfernandez@gmail.com"
-            />
-            <small className={styles.tooltip}>Sin tildes</small>
-          </div>
+          <Input
+            fieldProps={{
+              type: 'email',
+              name: 'email',
+              label: 'Correo electrónico',
+              placeholder: 'Ej. carmenfernandez@gmail.com',
+              styles: styles,
+              tooltipLabel: 'Sin tildes',
+              onChange: handleInputChange,
+              value: formValues.email
+            }}
+          />
         </form>
       </div>
 
       <p className={styles.terms}>Al continuar, estás aceptando los <Link className={styles.termsLink} to="#">Términos y Condiciones en Protección de Datos</Link></p>
 
-      <Button label={buttonProps.LABEL} styles={buttonProps.styles}/>
+      <Button
+        label={buttonProps.LABEL}
+        styles={buttonProps.styles}
+        disabled={!formCompleted}
+      />
     </>
   );
 }
