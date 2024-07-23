@@ -3,6 +3,7 @@ import './App.css';
 import Home from './views/Home';
 import Checkout from './views/checkout';
 import NavBar from './components/navBar';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/checkout/:id" element={<Checkout />} />
           </Routes>
         </header>
+        <Footer />
       </div>
     </Router>
   );

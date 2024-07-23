@@ -1,0 +1,52 @@
+.footer {
+  background-color: black;
+  color: white;
+  padding: 0 6em;
+}
+
+.customerServiceContainer {
+  display: flex;
+}
+
+.logo {
+  padding: 7em 3em 7em 0;
+}
+
+.customerServiceInfo {
+  display: flex;
+  font-size: large;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6em;
+}
+
+.customerService {
+  font-weight: bold;
+  text-align: left;
+}
+
+.customerServiceSchedule {
+  margin-top: 2em;
+}
+
+.phoneCall {
+  align-self: center;
+  margin-top: 3.5em;
+}
+
+.divider {
+  border: 1px solid rgb(75, 75, 75);
+  margin-top: -2em;
+}
+
+.bottomLinksContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+  font-size: small;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+}
