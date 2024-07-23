@@ -72,3 +72,15 @@
   font-weight: bold;
   text-align: left;
 }
+
+.bestSeller {
+  background-color: #bd7ff0;
+  color: white;
+  padding: 0.5em 0 0.5em 1.5em;
+  margin: -2vw 0 -1vw -1.5vw;
+  width: 45%;
+}
+
+.promoName {
+  margin-top: 2em;
+}

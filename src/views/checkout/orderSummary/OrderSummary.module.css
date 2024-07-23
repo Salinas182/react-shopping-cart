@@ -1,0 +1,138 @@
+.checkoutStage {
+  text-align: start;
+  font-weight: 900;
+}
+
+.sectionContainer {
+  text-align: left;
+}
+
+.sectionTitle {
+  font-size: 3vh;
+  font-weight: 800;
+}
+
+.rateDetails {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  align-items: center;
+}
+
+.ratePrice {
+  font-size: 6vh;
+  font-weight: bolder;
+}
+
+.rateSubDescription {
+  font-weight: bold;
+}
+
+.commitmentInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 4vh 0;
+  font-size: 0.8em;
+}
+
+.commitmentPeriod, .simPrice, .discount {
+  color: #66de74;
+}
+
+.divider {
+  border-top: 3px solid;
+}
+
+.simInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 3vh 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.installationInfo, .installationDiscount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.initialPayment, .monthlyPrice {
+  font-size: 9vh;
+  font-weight: bolder;
+  text-align: right;
+  margin: 0;
+}
+
+.monthlyPriceInfo {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  margin-top: -10vh;
+}
+
+.taxIncluded {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+}
+
+.chevronIcon {
+  margin: 0 1.5em;
+}
+
+.completeProcess {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh 0;
+}
+
+.acknowledgement {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 10px;
+}
+
+.acknowledgementText {
+  width: 60%;
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 1em;
+}
+
+.checkbox {
+  display: none;
+}
+
+.customCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6b34eb;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  margin-top: 1.2em;
+}
+
+.checkbox:checked+.customCheckbox::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 12px;
+  border: solid #6b34eb;
+  border-width: 0 3px 3px 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%) rotate(45deg);
+}
+
+.termsLink {
+  text-decoration: none;
+  color: #6b34eb;
+}

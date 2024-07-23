@@ -4,6 +4,7 @@ import useErrorHandling from "../../hooks/useErrorHandling";
 import styles from "./Checkout.module.css";
 import DealDetails from "./dealDetails";
 import CustomerDetails from "./customerDetails";
+import OrderSummary from "./orderSummary";
 
 export default function Checkout() {
   const [product, setProduct] = useState();
@@ -40,6 +41,7 @@ export default function Checkout() {
       
       <DealDetails product={product} />
       <CustomerDetails />
+      <OrderSummary product={product} />
     </div>
   );
 }

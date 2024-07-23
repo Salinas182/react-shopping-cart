@@ -32,7 +32,12 @@ export default function DealDetails({ product }) {
           <div className={styles.promosContainer}>
             {product.promotions.map((promo, idx) =>
               <div className={styles.promoCard} key={`promo-${idx}`}>
-                <p>{promo.name?.toUpperCase()}</p>
+                {promo.type === 'ALTERNATIVE' && (
+                  <p className={styles.bestSeller}>
+                    LA MÁS VENDIDA
+                  </p>
+                )}
+                <p className={styles.promoName}>{promo.name?.toUpperCase()}</p>
                 <p>{promo.description}</p>
               </div>
             )}
