@@ -5,7 +5,7 @@ import Input from '../../../components/Input';
 import useFormValidation from '../../../hooks/useFormValidation';
 import { useEffect, useState } from 'react';
 
-export default function CustomerDetails() {
+export default function CustomerDetails({nextStage}) {
   const [formCompleted, setFormCompleted] = useState(false);
   const initialValues = {
     id: '',
@@ -131,6 +131,7 @@ export default function CustomerDetails() {
         label={buttonProps.LABEL}
         styles={buttonProps.styles}
         disabled={!formCompleted}
+        onClick={nextStage}
       />
     </>
   );

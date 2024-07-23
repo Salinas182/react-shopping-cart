@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button';
 import styles from './OrderSummary.module.css';
 import chevronIcon from '../../../assets/icons/chevron.svg';
@@ -7,6 +7,7 @@ import chevronIcon from '../../../assets/icons/chevron.svg';
 export default function OrderSummary({ product, discount = 0 }) {
   const [checkedTerms, setCheckedTerms] = useState(false);
   const [formCompleted, setFormCompleted] = useState(false);
+  const navigate = useNavigate();
 
   const productMonthlyPrice = product.prices?.find(price => price.name === 'iva')?.price;
   const initialPayment = discount ? productMonthlyPrice : (productMonthlyPrice + 96.8).toFixed(1);
@@ -18,6 +19,13 @@ export default function OrderSummary({ product, discount = 0 }) {
   const handleCheckboxChange = (e) => {
     setCheckedTerms(e.target.checked);
   };
+
+  const handleButtonOnClick = () => {
+    if (!formCompleted) {
+      return;
+    }
+    navigate('/');
+  }
 
   return (
     <>
@@ -118,6 +126,7 @@ export default function OrderSummary({ product, discount = 0 }) {
           label={buttonProps.LABEL}
           styles={buttonProps.styles}
           disabled={!formCompleted}
+          onClick={handleButtonOnClick}
         />
       </div>
     </>

@@ -5,7 +5,7 @@ import checkedIcon from '../../../assets/icons/ok.svg';
 
 const DISCOUNT_PROMO = 'STANDARD';
 
-export default function DealDetails({ product, setDiscount }) {
+export default function DealDetails({ product, setDiscount, nextStage }) {
   const [promoSelected, setPromoSelected] = useState(null);
   const handlePromoSelection = (promo) => {
     setPromoSelected(promo);
@@ -62,11 +62,11 @@ export default function DealDetails({ product, setDiscount }) {
         </>
       )}
 
-      {console.log(promoSelected ? 'selected' : 'no')}
       <Button
         label={buttonProps.LABEL}
         styles={buttonProps.styles}
         disabled={!promoSelected}
+        onClick={nextStage}
       />
     </>
   );
