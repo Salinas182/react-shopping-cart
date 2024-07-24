@@ -4,8 +4,9 @@
 
 .title {
   text-align: center;
-  font-size: 2em;
-  margin-bottom: 16px;
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+  color: black
 }
 
 .grid {

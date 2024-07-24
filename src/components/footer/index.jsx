@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 import logo from '../../assets/logo/finetwork_ng.svg';
+import appStoreLogo from '../../assets/store/apple.png';
+import googlePlayLogo from '../../assets/store/google.png';
 
 export default function Footer() {
   return (
@@ -20,6 +22,11 @@ export default function Footer() {
         </div>
 
         <span className={styles.phoneCall}>Te llamamos +</span>
+
+        <div className={styles.stores}>
+          <img src={appStoreLogo} alt="AppStore link" />
+          <img src={googlePlayLogo} alt="Google Play link" />
+        </div>
       </div>
 
       <hr className={styles.divider} />

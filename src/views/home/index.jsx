@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import ProductsList from "../components/productsList";
-import httpAdapter from "../adapters/httpAdapter";
-import useErrorHandling from "../hooks/useErrorHandling";
+import ProductsList from "../../components/productsList";
+import httpAdapter from "../../adapters/httpAdapter";
+import useErrorHandling from "../../hooks/useErrorHandling";
+import styles from './Home.module.css';
+import backgroundImage from '../../assets/images/featured.jpg';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -32,9 +34,11 @@ export default function Home() {
   }
 
   return (
-    <>
-      <h1>This summer, the best deals!</h1>
+    <div
+      className={styles.homeContainer}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <ProductsList products={products}/>
-    </>
+    </div>
   );
 }

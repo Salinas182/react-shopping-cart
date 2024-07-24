@@ -6,6 +6,7 @@
 
 .customerServiceContainer {
   display: flex;
+  justify-content: space-between;
 }
 
 .logo {
@@ -32,6 +33,15 @@
 .phoneCall {
   align-self: center;
   margin-top: 3.5em;
+  margin-right: 3.5em;
+}
+
+.stores {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-left: 4.5em;
 }
 
 .divider {

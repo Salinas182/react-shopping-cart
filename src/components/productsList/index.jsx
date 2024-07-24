@@ -8,7 +8,9 @@ export default function ProductsList({ products }) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Products</h2>
+      <h2 className={styles.title}>
+        Conoce nuestras tarifas destacadas
+      </h2>
 
       <div className={styles.grid}>
         {
