@@ -1,12 +1,18 @@
 .container {
-  padding: 16px;
+  padding: 2em;
 }
 
 .title {
   text-align: center;
   font-size: 1.2em;
+  margin-bottom: 1em;
+  color: white;
+}
+
+.subtitle {
+  font-size: 0.8em;
+  color: white;
   margin-bottom: 1.5em;
-  color: black
 }
 
 .grid {

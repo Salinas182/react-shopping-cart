@@ -1,0 +1,24 @@
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.filterButtons button {
+  margin: 0 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  border: 1px solid white;
+  background-color: rgba(176, 165, 255, 0.8);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+}
+
+.filterButtons button:hover, .filterButtons .activeFilter {
+  background-color: white;
+  color: #793bc0;
+  border: none;
+}
