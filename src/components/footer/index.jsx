@@ -24,8 +24,13 @@ export default function Footer() {
         <span className={styles.phoneCall}>Te llamamos +</span>
 
         <div className={styles.stores}>
-          <img src={appStoreLogo} alt="AppStore link" />
-          <img src={googlePlayLogo} alt="Google Play link" />
+          <Link to="">
+            <img src={appStoreLogo} alt="AppStore link" />
+          </Link>
+
+          <Link to="">
+            <img src={googlePlayLogo} alt="Google Play link" />
+          </Link>
         </div>
       </div>
 

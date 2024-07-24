@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Shopping Cart
 
 ## Available Scripts
 
@@ -17,54 +15,30 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Miscellaneous
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Improvement possibilities
 
-### `npm run eject`
+If this project was going to grow in time, some improvements could be made, for instance: 
+- Give the user the chance to register and login.
+- Use of API Context, Redux or Zustand for state management.
+- Use of TypeScript to reduce errors when developing the code.
+- Create prettier components for the user, maybe by using libraries like Material UI and customize their components.
+- Validate the form fields in a more exhaustive way -React Hook Form or similar tools might be useful for that purpose-.
+- Create more and better tests.
+- Add i18n to support different languages.
+- Add a spinner to improve the loading experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Technical decisions taken and reasons
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- I decided to make use of the Adapter Pattern to encapsulate the API calls. In this way, if I wanted to use an alternative to Axios for HTTP calls, that would not be a challenge or break the app, only the adapter would need to be modified.
+- Due to the lack of some information in the API products, such as the available promotions, I decided to always show in the Checkout view the details from the JSON product. I have added a little delay to the JSON request to pretend it is a real API call.
+- As both the navBar and the footer in the checkout example are different from the one in the current website, but not all the proper icons were available in the cloned project, I decided to create a mix of both versions -the Checkout's example and the current website-. 
+- Even though it was not required and nothing was supposed to be done with the customer data, I created a basic field validation. In a real case, I would also validate the fields' content, such as the right formats for the ID or Phone fields.
+- As there was no need to keep any information available through the entire app, I decided to keep the state information simple by using just the useState hook. If a login was required for instance, I would have used API Context or a state management library.
+- As I was running out of time, I decided to create tests only for the most critical files, such as the HTTP Adapter, the custom hooks or some components as example.
