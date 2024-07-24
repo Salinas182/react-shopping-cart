@@ -29,7 +29,7 @@ export default function Checkout() {
   }, [handleError]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   if (error) {

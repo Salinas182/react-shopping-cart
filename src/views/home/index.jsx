@@ -26,7 +26,7 @@ export default function Home() {
   }, [handleError]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
   
   if (error) {

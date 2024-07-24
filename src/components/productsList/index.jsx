@@ -3,7 +3,7 @@ import styles from './ProductsList.module.css';
 
 export default function ProductsList({ products }) {
   if (!products?.length) {
-    return <p className = {styles.noProducts}>No available products</p>
+    return <p className = {styles.noProducts}>No hay productos disponibles</p>
   }
 
   return (

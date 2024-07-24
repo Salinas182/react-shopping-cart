@@ -6,7 +6,7 @@ export default function Input({ fieldProps }) {
     styles,
     placeholder = '',
     tooltipLabel = '',
-    value = '',
+    defaultValue = '',
     onChange
   } = fieldProps;
   
@@ -18,7 +18,7 @@ export default function Input({ fieldProps }) {
         id={name}
         name={name}
         placeholder={placeholder}
-        value={value}
+        defaultValue={defaultValue}
         onChange={onChange}
       />
       {tooltipLabel && (
